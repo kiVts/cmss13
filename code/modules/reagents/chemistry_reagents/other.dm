@@ -170,6 +170,28 @@
 	chemclass = CHEM_CLASS_UNCOMMON
 	properties = list(PROPERTY_PAINKILLING = 6)
 
+//Hydro research stuff
+/datum/reagent/phosphorescent
+	name = "Phosphorescent"
+	id = "phosphorescent"
+	description = "A chemical rarely found in mutated plants, it is considered Man-made from organic and nonorganic sources that glow in the dark."
+	reagent_state = LIQUID
+	color = "#999999" //rgb: 150, 150, 150 kind of transperent
+	chemclass = CHEM_CLASS_RARE
+	overdose = MED_REAGENTS_OVERDOSE
+	overdose_critical = MED_REAGENTS_OVERDOSE_CRITICAL
+	properties = list(PROPERTY_BIOLUMINESCENCE = 2)
+
+/datum/reagent/laticiferous
+	name = "Laticiferous"
+	id = "laticiferous"
+	description = "Potent poison found in latex cells of some plants as means of self-defense against animals and pests, contains cardenolide steroids which is an antagonist for cardiovascular system. Handle with care."
+	reagent_state = LIQUID
+	color = "#808080" //grey ish white ish
+	chemclass = CHEM_CLASS_RARE
+	overdose = MED_REAGENTS_OVERDOSE
+	overdose_critical = MED_REAGENTS_OVERDOSE_CRITICAL
+	properties = list(PROPERTY_FOAMING = 3, PROPERTY_CARDIOTOXIC = 5)
 /datum/reagent/serotrotium
 	name = "Serotrotium"
 	id = "serotrotium"
