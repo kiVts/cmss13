@@ -192,6 +192,17 @@
 	overdose = MED_REAGENTS_OVERDOSE
 	overdose_critical = MED_REAGENTS_OVERDOSE_CRITICAL
 	properties = list(PROPERTY_FOAMING = 3, PROPERTY_CARDIOTOXIC = 5)
+
+/datum/reagent/ferritious
+	name = "Ferritious"
+	id = "Ferritious"
+	description = "A chemical compound which excels at absorbing RF waves and other types of wireless communication."
+	reagent_state = LIQUID
+	color = "#808080" //grey ish white ish
+	chemclass = CHEM_CLASS_RARE
+	overdose = MED_REAGENTS_OVERDOSE
+	overdose_critical = MED_REAGENTS_OVERDOSE_CRITICAL
+	properties = list(PROPERTY_ABSORBING = 5)
 /datum/reagent/serotrotium
 	name = "Serotrotium"
 	id = "serotrotium"
