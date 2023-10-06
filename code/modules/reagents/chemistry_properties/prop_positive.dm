@@ -727,15 +727,15 @@
 	if(prob(70))
 		var/datum/internal_organ/eyes/eyes = effected_human.internal_organs_by_name["eyes"]
 		eyes.take_damage(POTENCY_MULTIPLIER_VLOW * potency)
-	affected_mob.take_damage(POTENCY_MULTIPLIER_LOW * potency, TOX)
+	affected_mob.apply_damage(POTENCY_MULTIPLIER_LOW * potency, TOX)
 
 /datum/chem_property/positive/nightvision/process_overdose(mob/living/affected_mob, potency, delta_time)
 	var/mob/living/carbon/human/effected_human = affected_mob
 	affected_mob.lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
 	if(prob(70))
 		var/datum/internal_organ/eyes/eyes = effected_human.internal_organs_by_name["eyes"]
-		eyes.take_damage(POTENCY_MULTIPLIER_MEDIUM * potency)
-	affected_mob.take_damage(POTENCY_MULTIPLIER_HIGH * potency, TOX)
+		eyes.take_damage(POTENCY_MULTIPLIER_MEDIUM * potency, TRUE)
+	affected_mob.apply_damage(POTENCY_MULTIPLIER_HIGH * potency, TOX)
 
 /datum/chem_property/positive/nightvision/on_delete(mob/living/affected_mob)
 	affected_mob.lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
