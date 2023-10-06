@@ -149,6 +149,9 @@
 #define PROPERTY_PSYCHOSTIMULATING "psychostimulating"
 #define PROPERTY_ANTIHALLUCINOGENIC "anti-hallucinogenic"
 #define PROPERTY_EXCRETING "excreting"
+#define PROPERTY_FOAMING "foaming"
+#define PROPERTY_BIOLUMINESCENCE "bioluminescence"
+#define PROPERTY_ABSORBING "absorbing"
 #define PROPERTY_HYPOMETABOLIC "hypometabolic"
 #define PROPERTY_SEDATIVE "sedative"
 #define PROPERTY_TRANSFORMATIVE "transformative"
@@ -181,6 +184,8 @@
 #define PROPERTY_ORGANSTABILIZE "organ-stabilizing"
 //Rare Combo, made by combining other properties
 #define PROPERTY_DEFIBRILLATING "defibrillating"
+#define PROPERTY_ANGIOGENETIC "angiogenetic"
+#define PROPERTY_NIGHTVISION "Night-vision"
 #define PROPERTY_THANATOMETABOL "thanatometabolizing"
 #define PROPERTY_HYPERDENSIFICATING "hyperdensificating"
 #define PROPERTY_HYPERTHROTTLING "hyperthrottling"

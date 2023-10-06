@@ -666,6 +666,55 @@
 /datum/chem_property/positive/antiaddictive/process_critical(mob/living/M, potency = 1, delta_time)
 	M.hallucination = max(M.hallucination, potency)
 
+//hydroponics result chemicals
+/datum/chem_property/positive/angiogenetic
+	name = PROPERTY_ANGIOGENETIC
+	code = "ANG"
+	description = "Rapidly repairs all damaged blood vessels in the body, regardless of the location. Overdosis can cause foaming and blood fluids solidifying"
+	rarity = PROPERTY_DISABLED
+	category = PROPERTY_TYPE_MEDICINE
+	value = 1
+
+/datum/chem_property/positive/angiogenetic/process(mob/living/affected_mob, potency, delta_time)
+	var/mob/living/carbon/human/effected_human = affected_mob
+	effected_human.chem_effect_flags |= CHEM_EFFECT_NO_BLEEDING
+	var/obj/limb/limb = pick(effected_human.limbs)
+	if(prob(10 * potency))
+		limb.remove_all_bleeding(FALSE, TRUE)
+	else
+		limb.remove_all_bleeding(TRUE, FALSE)
+
+/datum/chem_property/positive/angiogenetic/process_overdose(mob/living/affected_mob, potency, delta_time)
+	var/mob/living/carbon/human/effected_human = affected_mob
+	var/obj/limb/limb = pick(effected_human.limbs)
+	limb.remove_all_bleeding(TRUE, TRUE)
+	affected_mob.apply_damage(POTENCY_MULTIPLIER_HIGH * potency, OXY)
+	affected_mob.apply_damage(POTENCY_MULTIPLIER_MEDIUM*potency, BRAIN)
+	to_chat(affected_mob, SPAN_WARNING("Your veins Solidify..."))
+
+/datum/chem_property/positive/angiogenetic/process_critical(mob/living/affected_mob, potency, delta_time)
+	var/mob/living/carbon/human/effected_human = affected_mob
+	var/obj/limb/limb = pick(effected_human.limbs)
+	limb.remove_all_bleeding(TRUE, TRUE)
+	affected_mob.apply_damage(POTENCY_MULTIPLIER_VHIGH * potency, OXY)
+	affected_mob.apply_damage(POTENCY_MULTIPLIER_HIGH*potency, BRAIN)
+	to_chat(affected_mob, SPAN_DANGER("Your left hand feels weaker than right..."))
+
+/datum/chem_property/positive/angiogenetic/on_delete(mob/living/affected_mob)
+	var/mob/living/carbon/human/effected_human = affected_mob
+	effected_human.chem_effect_flags &= CHEM_EFFECT_NO_BLEEDING
+
+/datum/chem_property/positive/nightvision
+	name = PROPERTY_NIGHTVISION
+	code = "NVN"
+	description = "Subject will partially gain ability to look in the dark. Due to the extreme stress on eye this causes, it will continously damage eye retina."
+	rarity = PROPERTY_DISABLED
+	category = PROPERTY_TYPE_STIMULANT
+	value = 3
+
+
+
+
 /datum/chem_property/positive/fire
 	rarity = PROPERTY_DISABLED
 	category = PROPERTY_TYPE_REACTANT|PROPERTY_TYPE_COMBUSTIBLE

@@ -609,6 +609,52 @@
 /datum/chem_property/neutral/transformative/process_critical(mob/living/M, potency = 1, delta_time)
 	M.apply_damage(heal_amount * potency * delta_time, TOX)
 
+// Hydroponics chemical properties, more to come
+/datum/chem_property/neutral/absorbing
+	name = PROPERTY_ABSORBING
+	code = "ABS"
+	description = "Natural plant ability to absorb and neutralize certain chemicals on contact."
+	rarity = PROPERTY_DISABLED
+	category = PROPERTY_TYPE_REACTANT
+
+/datum/chem_property/neutral/absorbing/process_overdose(mob/living/M, potency = 1)
+	M.apply_damage(potency * POTENCY_MULTIPLIER_LOW, TOX)
+
+/datum/chem_property/neutral/absorbing/process_critical(mob/living/M, potency, delta_time)
+	M.apply_damage(potency * POTENCY_MULTIPLIER_HIGH, TOX)
+
+/datum/chem_property/neutral/foaming
+	name = PROPERTY_FOAMING
+	code = "FOM"
+	description = "Natural plant ability of some species to foam and solidify after injuries to prevent further damage from pests."
+	rarity = PROPERTY_DISABLED
+	category = PROPERTY_TYPE_REACTANT
+
+/datum/chem_property/neutral/foaming/process_overdose(mob/living/M, potency = 1)
+	M.apply_damage(potency * POTENCY_MULTIPLIER_LOW, TOX)
+
+/datum/chem_property/neutral/foaming/process_critical(mob/living/M, potency, delta_time)
+	M.apply_damage(potency * POTENCY_MULTIPLIER_HIGH, TOX)
+
+/datum/chem_property/neutral/bioluminescence
+	name = PROPERTY_BIOLUMINESCENCE
+	code = "BIS"
+	description = "Natural ability of some plants and fungus to glow in the dark via harmless chemical reaction when this property comes in contact with a living organism."
+	rarity = PROPERTY_DISABLED
+	category = PROPERTY_TYPE_REACTANT
+
+/datum/chem_property/neutral/bioluminescence/process(mob/living/M, potency = 1, delta_time)
+	M.set_light(potency*2)
+
+/datum/chem_property/neutral/bioluminescence/process_overdose(mob/living/M, potency = 1)
+	M.apply_damage(potency * POTENCY_MULTIPLIER_LOW, TOX)
+
+/datum/chem_property/neutral/bioluminescence/process_critical(mob/living/M, potency, delta_time)
+	M.apply_damage(potency * POTENCY_MULTIPLIER_HIGH, TOX)
+
+/datum/chem_property/neutral/bioluminescence/on_delete(mob/living/M)
+	M.set_light(0)
+
 /datum/chem_property/neutral/unknown
 	name = PROPERTY_UNKNOWN
 	code = "UNK"
