@@ -690,7 +690,8 @@
 	limb.remove_all_bleeding(TRUE, TRUE)
 	affected_mob.apply_damage(POTENCY_MULTIPLIER_HIGH * potency, OXY)
 	affected_mob.apply_damage(POTENCY_MULTIPLIER_MEDIUM*potency, BRAIN)
-	to_chat(affected_mob, SPAN_WARNING("Your veins Solidify..."))
+	if(prob(30))
+		to_chat(affected_mob, SPAN_WARNING("Your veins Solidify..."))
 
 /datum/chem_property/positive/angiogenetic/process_critical(mob/living/affected_mob, potency, delta_time)
 	var/mob/living/carbon/human/effected_human = affected_mob
@@ -698,7 +699,8 @@
 	limb.remove_all_bleeding(TRUE, TRUE)
 	affected_mob.apply_damage(POTENCY_MULTIPLIER_VHIGH * potency, OXY)
 	affected_mob.apply_damage(POTENCY_MULTIPLIER_HIGH*potency, BRAIN)
-	to_chat(affected_mob, SPAN_DANGER("Your left hand feels weaker than right..."))
+	if(prob(40))
+		to_chat(affected_mob, SPAN_DANGER("Your left hand feels weaker than right..."))
 
 /datum/chem_property/positive/angiogenetic/on_delete(mob/living/affected_mob)
 	var/mob/living/carbon/human/effected_human = affected_mob
@@ -712,7 +714,31 @@
 	category = PROPERTY_TYPE_STIMULANT
 	value = 3
 
+/datum/chem_property/positive/nightvision/process(mob/living/affected_mob, potency, delta_time)
+	var/mob/living/carbon/human/effected_human = affected_mob
+	affected_mob.lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
+	if(prob(30))
+		var/datum/internal_organ/eyes/eyes = effected_human.internal_organs_by_name["eyes"]
+		eyes.take_damage(POTENCY_MULTIPLIER_VVLOW * potency)
 
+/datum/chem_property/positive/nightvision/process_overdose(mob/living/affected_mob, potency, delta_time)
+	var/mob/living/carbon/human/effected_human = affected_mob
+	affected_mob.lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
+	if(prob(70))
+		var/datum/internal_organ/eyes/eyes = effected_human.internal_organs_by_name["eyes"]
+		eyes.take_damage(POTENCY_MULTIPLIER_VLOW * potency)
+	affected_mob.take_damage(POTENCY_MULTIPLIER_LOW * potency, TOX)
+
+/datum/chem_property/positive/nightvision/process_overdose(mob/living/affected_mob, potency, delta_time)
+	var/mob/living/carbon/human/effected_human = affected_mob
+	affected_mob.lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
+	if(prob(70))
+		var/datum/internal_organ/eyes/eyes = effected_human.internal_organs_by_name["eyes"]
+		eyes.take_damage(POTENCY_MULTIPLIER_MEDIUM * potency)
+	affected_mob.take_damage(POTENCY_MULTIPLIER_HIGH * potency, TOX)
+
+/datum/chem_property/positive/nightvision/on_delete(mob/living/affected_mob)
+	affected_mob.lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 
 
 /datum/chem_property/positive/fire

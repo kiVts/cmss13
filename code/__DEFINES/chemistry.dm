@@ -185,7 +185,8 @@
 //Rare Combo, made by combining other properties
 #define PROPERTY_DEFIBRILLATING "defibrillating"
 #define PROPERTY_ANGIOGENETIC "angiogenetic"
-#define PROPERTY_NIGHTVISION "Night-vision"
+#define PROPERTY_NIGHTVISION "night-vision"
+#define PROPERTY_WAVEABSORBING "wave-absorbing"
 #define PROPERTY_THANATOMETABOL "thanatometabolizing"
 #define PROPERTY_HYPERDENSIFICATING "hyperdensificating"
 #define PROPERTY_HYPERTHROTTLING "hyperthrottling"

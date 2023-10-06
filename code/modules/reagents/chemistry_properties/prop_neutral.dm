@@ -643,17 +643,39 @@
 	rarity = PROPERTY_DISABLED
 	category = PROPERTY_TYPE_REACTANT
 
-/datum/chem_property/neutral/bioluminescence/process(mob/living/M, potency = 1, delta_time)
-	M.set_light(potency*2)
+/datum/chem_property/neutral/bioluminescence/process(mob/living/affected_mob, potency, delta_time)
+	affected_mob.set_light(potency*2)
 
-/datum/chem_property/neutral/bioluminescence/process_overdose(mob/living/M, potency = 1)
-	M.apply_damage(potency * POTENCY_MULTIPLIER_LOW, TOX)
+/datum/chem_property/neutral/bioluminescence/process_overdose(mob/living/affected_mob, potency, delta_time)
+	affected_mob.apply_damage(potency * POTENCY_MULTIPLIER_LOW, TOX)
+	affected_mob.set_light(potency*3)
 
-/datum/chem_property/neutral/bioluminescence/process_critical(mob/living/M, potency, delta_time)
-	M.apply_damage(potency * POTENCY_MULTIPLIER_HIGH, TOX)
 
-/datum/chem_property/neutral/bioluminescence/on_delete(mob/living/M)
-	M.set_light(0)
+/datum/chem_property/neutral/bioluminescence/process_critical(mob/living/affected_mob, potency, delta_time)
+	affected_mob.apply_damage(potency * POTENCY_MULTIPLIER_HIGH, TOX)
+
+/datum/chem_property/neutral/bioluminescence/on_delete(mob/living/affected_mob)
+	affected_mob.set_light(0)
+
+//already read part
+/datum/chem_property/neutral/waveabsorbing
+	name = PROPERTY_WAVEABSORBING
+	code = "WAB"
+	description = "Absorbs wide spectrum of wavelenghts. This makes many targeting and acquisition sensors malfunction, most of electrical and infrared cameras futile"
+	rarity = PROPERTY_DISABLED
+	category = PROPERTY_TYPE_STIMULANT
+	value = 1
+
+/datum/chem_property/neutral/waveabsorbing/process(mob/living/affected_mob, potency, delta_time)
+	affected_mob.apply_damage(potency * POTENCY_MULTIPLIER_LOW, TOX)
+	if(prob(30))
+		to_chat(affected_mob, SPAN_NOTICE("Your mind is more quiet its ever been. Only you and your mind."))
+
+/datum/chem_property/neutral/waveabsorbing/reaction_mob(mob/M, method=TOUCH, volume, potency)
+	if(!isxeno(M))
+		return
+	var/mob/living/carbon/xenomorph/X = M
+	X.interference += (volume * potency) * POTENCY_MULTIPLIER_HIGH //no idea yet as to anything unique *yet*, so leaving it as more powerful disrupting for now
 
 /datum/chem_property/neutral/unknown
 	name = PROPERTY_UNKNOWN
