@@ -101,8 +101,8 @@
 
 /obj/structure/machinery/computer/research/ui_static_data(mob/user)
 	var/list/contract = list()
-	for(var/i in GLOB.chemical_data.contract_chems)
-		var/datum/reagent/generated/contract_chem = i
+	for(var/i in 1 to RESEARCH_CONTRACT_CHEM_AMOUNT)
+		var/datum/reagent/generated/contract_chem = GLOB.chemical_data.contract_chems[i]
 		contract += list(list(
 			"name" = contract_chem,
 			"property_hint" = contract_chem.property_hint,

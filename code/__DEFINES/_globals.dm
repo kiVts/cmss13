@@ -78,7 +78,7 @@
 /// Create a typed global with an initializer expression
 #define GLOBAL_DATUM_INIT(X, Typepath, InitValue) GLOBAL_RAW(Typepath/##X); GLOBAL_MANAGED(X, InitValue)
 
-/// Create an untyped null global
+/// Create an untyped null global 
 #define GLOBAL_VAR(X) GLOBAL_RAW(/##X); GLOBAL_UNMANAGED(X)
 
 /// Create a null global list
