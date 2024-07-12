@@ -202,7 +202,7 @@
 	addtimer(CALLBACK(src, PROC_REF(before_update)), PAIN_UPDATE_FREQUENCY)
 
 /datum/pain/proc/decrease_pain_level()
-	level_updating = TRUE
+	level_updating = TRUE //no
 
 	var/new_level = PAIN_LEVEL_SEVERE
 	switch(last_level)
