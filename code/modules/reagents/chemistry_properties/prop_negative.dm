@@ -188,8 +188,8 @@
 	. = ..()
 	if(!processing_tray.seed)
 		return
-	if(processing_tray.weedlevel > 0)
-		processing_tray.weedlevel += -1*(potency*2)*volume
+	if(processing_tray.pestlevel > 0)
+		processing_tray.pestlevel += -1*(potency*2)*volume
 
 /datum/chem_property/negative/paining
 	name = PROPERTY_PAINING

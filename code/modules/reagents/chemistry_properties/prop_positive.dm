@@ -851,11 +851,11 @@
 	rarity = PROPERTY_UNCOMMON
 	category = PROPERTY_TYPE_TOXICANT
 
-/datum/chem_property/positive/photosensetive/process(mob/living/M, potency = 1)
+/datum/chem_property/positive/photosensitive/process(mob/living/M, potency = 1)
 	to_chat(M, SPAN_WARNING("Your feel a horrible migraine!"))
 	M.apply_internal_damage(potency, "brain")
 
-/datum/chem_property/positive/photosensetive/reaction_hydro_tray(obj/structure/machinery/portable_atmospherics/hydroponics/processing_tray, potency, volume)
+/datum/chem_property/positive/photosensitive/reaction_hydro_tray(obj/structure/machinery/portable_atmospherics/hydroponics/processing_tray, potency, volume)
 	. = ..()
 	if(!processing_tray.seed)
 		return
