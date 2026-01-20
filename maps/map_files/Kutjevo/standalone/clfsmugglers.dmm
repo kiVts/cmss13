@@ -3,6 +3,10 @@
 /obj/item/flag/plantable/clf,
 /turf/open/floor/kutjevo/tan,
 /area/kutjevo/exterior/clf_lz)
+"ab" = (
+/obj/structure/machinery/iv_drip,
+/turf/open/auto_turf/sand/layer1,
+/area/kutjevo/exterior/clf_lz)
 "am" = (
 /obj/structure/machinery/door/airlock/almayer/generic/autoname,
 /turf/open/floor/almayer,
@@ -826,7 +830,7 @@
 /turf/open/floor/almayer/research/containment/floor1,
 /area/kutjevo/exterior/clf_lz)
 "Ou" = (
-/obj/structure/reagent_dispensers/fueltank,
+/obj/structure/reagent_dispensers/tank/fuel,
 /turf/open/auto_turf/sand/layer1,
 /area/kutjevo/exterior/clf_lz)
 "OE" = (
@@ -2287,7 +2291,7 @@ mr
 cf
 cf
 gl
-cf
+ab
 cf
 cf
 cf
