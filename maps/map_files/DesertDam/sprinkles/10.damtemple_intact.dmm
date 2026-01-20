@@ -6,6 +6,10 @@
 /obj/item/reagent_container/glass/rag/polishing_rag,
 /turf/open/floor/corsat/squareswood/north,
 /area/desert_dam/interior/caves/temple)
+"ab" = (
+/obj/structure/reagent_dispensers/tank/water/yautja,
+/turf/open/floor/corsat/squareswood/north,
+/area/desert_dam/interior/caves/temple)
 "ac" = (
 /obj/structure/bed/chair/comfy/yautja{
 	dir = 8
@@ -54,6 +58,10 @@
 	},
 /turf/open/floor/corsat/squareswood/north,
 /area/desert_dam/interior/caves/temple)
+"aj" = (
+/obj/structure/reagent_dispensers/tank/fuel/yautja,
+/turf/open/floor/strata/grey_multi_tiles,
+/area/desert_dam/interior/caves/temple)
 "ak" = (
 /obj/structure/bed/bedroll,
 /turf/open/floor/corsat/squareswood/north,
@@ -86,33 +94,25 @@
 /turf/open/floor/sandstone/runed,
 /area/desert_dam/interior/caves/temple)
 "aq" = (
-/obj/structure/reagent_dispensers/tank/water/yautja,
-/turf/open/floor/corsat/squareswood/north,
-/area/desert_dam/interior/caves/temple)
-"ar" = (
-/obj/structure/reagent_dispensers/tank/fuel/yautja,
-/turf/open/floor/strata/grey_multi_tiles,
-/area/desert_dam/interior/caves/temple)
-"as" = (
 /obj/structure/surface/rack,
 /obj/item/clothing/head/hardhat,
 /turf/open/desert/rock,
 /area/desert_dam/interior/caves/temple)
-"at" = (
+"ar" = (
 /obj/item/device/flashlight/lantern,
 /turf/open/desert/rock,
 /area/desert_dam/interior/caves/temple)
-"au" = (
+"as" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/desert/rock,
+/area/desert_dam/interior/caves/temple)
+"at" = (
+/obj/effect/decal/remains/human,
 /turf/open/desert/rock,
 /area/desert_dam/interior/caves/temple)
 "av" = (
 /obj/structure/xenoautopsy/tank/hugger/yautja,
 /turf/open/shuttle/red,
-/area/desert_dam/interior/caves/temple)
-"aw" = (
-/obj/effect/decal/remains/human,
-/turf/open/desert/rock,
 /area/desert_dam/interior/caves/temple)
 "aZ" = (
 /obj/structure/prop/brazier,
@@ -881,7 +881,7 @@ an
 td
 td
 td
-as
+aq
 oH
 MH
 mn
@@ -920,7 +920,7 @@ af
 ae
 IW
 MH
-aq
+ab
 AU
 mB
 mB
@@ -931,7 +931,7 @@ an
 "}
 (11,1,1) = {"
 td
-au
+as
 td
 td
 td
@@ -983,9 +983,9 @@ ao
 "}
 (13,1,1) = {"
 td
-aw
-td
 at
+td
+ar
 td
 MH
 MH
@@ -1086,7 +1086,7 @@ an
 an
 "}
 (17,1,1) = {"
-au
+as
 td
 an
 an
@@ -1304,7 +1304,7 @@ AU
 AU
 MH
 Bm
-ar
+aj
 JZ
 MH
 an
